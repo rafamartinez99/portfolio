@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agente SFTP - Proyecto</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-code"></i>RMM</div>
+    <ul>
+      <li><a href="../index.html">Volver al portfolio</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Introducción -->
+    <section>
+      <h2>Agente SFTP</h2>
+      <p>
+        Servicio de escritorio desarrollado durante las prácticas en empresa que monitoriza hasta 10 carpetas
+        locales de forma simultánea y sube automáticamente los archivos detectados a sus respectivos servidores
+        SFTP, ejecutándose en segundo plano desde la bandeja del sistema de Windows.
+      </p>
+      <p>
+        Cada origen se configura de forma independiente en un archivo <code>config.ini</code> externo —
+        servidor, credenciales cifradas, carpeta local y frecuencia de revisión — sin necesidad de recompilar
+        la aplicación para adaptarla a nuevos entornos o máquinas.
+      </p>
+    </section>
+
+    <!-- Funcionalidades -->
+    <section>
+      <h2><i class="fa-solid fa-list-check"></i> Funcionalidades clave</h2>
+      <ul>
+        <li><strong>Monitorización multi-origen:</strong> Hasta 10 carpetas locales vigiladas en paralelo, cada una con
+          su propio timer independiente y frecuencia configurable (mínimo 5 segundos).</li>
+        <li><strong>Subida SFTP con reintentos:</strong> Hasta 2 reintentos automáticos por archivo con espera de 3
+          segundos entre intentos. Los errores de autenticación no reintentan para evitar bloqueos de cuenta.</li>
+        <li><strong>Detección de archivo en uso:</strong> Antes de subir, se verifica que el archivo no esté bloqueado
+          por otro proceso, evitando transferencias de archivos incompletos o en proceso de copia.</li>
+        <li><strong>Gestión de conflictos de nombre:</strong> Si ya existe un archivo con el mismo nombre en el servidor
+          remoto o en la carpeta <code>enviados/</code>, se renombra automáticamente añadiendo un timestamp.</li>
+        <li><strong>Carpeta de enviados:</strong> Los archivos subidos correctamente se mueven a una subcarpeta
+          <code>enviados/</code> del origen para mantener un historial local.</li>
+        <li><strong>Limpieza automática:</strong> Timer diario que elimina archivos de <code>enviados/</code> con más de
+          30 días de antigüedad, evitando el crecimiento indefinido del directorio.</li>
+        <li><strong>Credenciales cifradas con AES:</strong> Las contraseñas nunca se almacenan en texto plano — se
+          cifran con EncryptorACX y se desencriptan en memoria al arrancar.</li>
+        <li><strong>Log rotativo asíncrono:</strong> Sistema de logging con formato Syslog que escribe en un hilo
+          dedicado mediante <code>BlockingCollection</code>, con rotación mensual automática a
+          <code>conexion_old.log</code>.</li>
+        <li><strong>Tooltip dinámico:</strong> El icono de bandeja muestra en tiempo real el número de orígenes activos,
+          la hora de la última subida y los archivos transferidos durante el día.</li>
+        <li><strong>Menú contextual:</strong> Clic derecho sobre el icono permite abrir el log actual directamente en el
+          Bloc de notas o cerrar el agente.</li>
+      </ul>
+    </section>
+
+    <!-- Tecnologías -->
+    <section>
+      <h2><i class="fa-solid fa-screwdriver-wrench"></i> Tecnologías usadas</h2>
+      <p><strong>Lenguaje:</strong> C#</p>
+      <p><strong>Framework:</strong> .NET 8, Windows Forms</p>
+      <p><strong>Protocolo:</strong> SFTP mediante SSH.NET (Renci.SshNet)</p>
+      <p><strong>Criptografía:</strong> AES (integración con EncryptorACX)</p>
+      <p><strong>Otros:</strong> System.Timers, BlockingCollection, NotifyIcon, parser INI personalizado.</p>
+    </section>
+
+    <!-- Galería -->
+    <section>
+      <h2><i class="fa-regular fa-images"></i> Galería de pantallas</h2>
+      <div class="screenshots-grid">
+        <figure class="screenshot-item-windows">
+          <img src="../img/agentesftp/tray.png" alt="Icono en bandeja del sistema con menú contextual" />
+          <figcaption>Bandeja del sistema</figcaption>
+        </figure>
+        <figure class="screenshot-item-windows">
+          <img src="../img/agentesftp/log.png" alt="Log de actividad en tiempo real" />
+          <figcaption>Log de actividad</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Decisiones técnicas -->
+    <section>
+      <h2><i class="fa-solid fa-gears"></i> Decisiones técnicas</h2>
+      <p><strong>BlockingCollection para escritura de logs:</strong> Las entradas de log se encolan y procesan en un
+        hilo dedicado de larga duración, evitando que las escrituras en disco bloqueen los timers de subida cuando
+        varios orígenes generan eventos simultáneamente.</p>
+      <p><strong>Reintentos inteligentes:</strong> El sistema reintenta automáticamente en errores de red o servidor no
+        disponible, pero interrumpe inmediatamente ante errores de autenticación — reintentar en ese caso sería inútil y
+        podría bloquear la cuenta en el servidor.</p>
+      <p><strong>Verificación de archivo disponible:</strong> Antes de cada subida se intenta abrir el archivo en modo
+        exclusivo. Si está bloqueado por otro proceso — por ejemplo, está siendo generado o copiado — se omite en esa
+        iteración y se reintentará en el siguiente ciclo del timer.</p>
+      <p><strong>Parser INI propio:</strong> Se implementó un lector de archivos <code>.ini</code> desde cero sin
+        librerías externas, parseando secciones y claves línea a línea con soporte de comentarios y tolerancia a
+        espacios.</p>
+      <p><strong>Frecuencia mínima con aviso:</strong> Si se configura una frecuencia menor de 5 segundos, la aplicación
+        la eleva automáticamente al mínimo y registra un warning en el log en lugar de lanzar una excepción, priorizando
+        la robustez frente al error de configuración.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p><i class="fa-regular fa-copyright"></i> 2026 Rafael Martínez — Todos los derechos reservados.</p>
+  </footer>
+</body>
+
+</html>

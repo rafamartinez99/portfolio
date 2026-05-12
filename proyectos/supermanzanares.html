@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SuperManzanares - Proyecto</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-code"></i>RMM</div>
+    <ul>
+      <li><a href="../index.html">Volver al portfolio</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>SuperManzanares</h2>
+      <p>
+        SuperManzanares es una aplicación Android de supermercado desarrollada como Trabajo de Fin de Grado,
+        construida íntegramente con Kotlin y Jetpack Compose. Permite explorar el catálogo de productos,
+        crear listas de compra personalizadas, gestionar un carrito y completar pedidos con selección
+        de dirección en mapa interactivo.
+      </p>
+      <p>
+        El proyecto implementa una arquitectura <strong>MVVM con Hilt</strong>, estrategia
+        <strong>offline-first con Room y Firestore</strong>, autenticación dual con
+        <strong>Google Sign-In y email/contraseña</strong>, e integración con <strong>Mapbox</strong>
+        para la selección del domicilio de entrega. Toda la navegación, el estado y la lógica de negocio
+        están desacoplados de la UI, siguiendo las guías de arquitectura recomendadas por Google.
+      </p>
+    </section>
+
+
+    <section>
+      <h2><i class="fa-solid fa-list-check"></i> Funcionalidades clave</h2>
+      <ul>
+        <li><strong>Pantalla principal:</strong> Explora productos destacados.</li>
+        <li><strong>Buscador:</strong> Filtrado por nombre o categoría.</li>
+        <li><strong>Listas de compra:</strong> Crea, edita y añade al carrito.</li>
+        <li><strong>Carrito inteligente:</strong> Solo aparece si hay productos.</li>
+        <li><strong>Confirmación de pedido:</strong> Con resumen y mapa de dirección.</li>
+        <li><strong>Perfil:</strong> Ver historial, modificar datos o cerrar sesión.</li>
+        <li><strong>Dirección con Mapbox:</strong> Mapa interactivo para seleccionar domicilio.</li>
+        <li><strong>Login con Google o manual:</strong> Incluye validación y recuperación de contraseña.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><i class="fa-solid fa-screwdriver-wrench"></i> Tecnologías usadas</h2>
+      <p><strong>Lenguaje:</strong> Kotlin</p>
+      <p><strong>Framework:</strong> Jetpack Compose</p>
+      <p><strong>Base de datos local:</strong> Room</p>
+      <p><strong>Backend y auth:</strong> Firebase (Firestore + Auth)</p>
+      <p><strong>Mapas:</strong> Mapbox SDK</p>
+      <p><strong>Otros:</strong> State hoisting, navegación compuesta, viewModels, flows, etc.</p>
+    </section>
+
+    <section>
+      <h2><i class="fa-regular fa-images"></i> Galería de pantallas</h2>
+      <div class="screenshots-grid">
+        <figure class="screenshot-item">
+          <img src="../img/supermanzanares/home.png" alt="Inicio" />
+          <figcaption>Inicio</figcaption>
+        </figure>
+        <figure class="screenshot-item">
+          <img src="../img/supermanzanares/buscador.png" alt="Buscador" />
+          <figcaption>Buscador</figcaption>
+        </figure>
+        <figure class="screenshot-item">
+          <img src="../img/supermanzanares/detalle.png" alt="Detalle de producto" />
+          <figcaption>Detalle producto</figcaption>
+        </figure>
+        <figure class="screenshot-item">
+          <img src="../img/supermanzanares/categorias.png" alt="Categorías" />
+          <figcaption>Categorías</figcaption>
+        </figure>
+        <figure class="screenshot-item">
+          <img src="../img/supermanzanares/listas.png" alt="Listas de compra" />
+          <figcaption>Listas</figcaption>
+        </figure>
+        <figure class="screenshot-item">
+          <img src="../img/supermanzanares/perfil.png" alt="Perfil" />
+          <figcaption>Perfil</figcaption>
+        </figure>
+        <figure class="screenshot-item">
+          <img src="../img/supermanzanares/direccion.png" alt="Dirección" />
+          <figcaption>Dirección</figcaption>
+        </figure>
+        <figure class="screenshot-item">
+          <img src="../img/supermanzanares/carrito.png" alt="Carrito" />
+          <figcaption>Carrito</figcaption>
+        </figure>
+        <figure class="screenshot-item">
+          <img src="../img/supermanzanares/confirmacion.png" alt="Confirmación de pedido" />
+          <figcaption>Confirmación pedido</figcaption>
+        </figure>
+        <figure class="screenshot-item">
+          <img src="../img/supermanzanares/login.png" alt="Inicio de sesión" />
+          <figcaption>Inicio de sesión</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2><i class="fa-solid fa-gears"></i> Decisiones técnicas</h2>
+      <p><strong>Arquitectura MVVM + Hilt:</strong> Cada pantalla tiene su propio ViewModel inyectado con Hilt que
+        expone el estado mediante StateFlow. La UI solo observa y reacciona — nunca llama directamente al repositorio ni
+        a Firestore, lo que facilita el testing y evita fugas de contexto al rotar el dispositivo.</p>
+      <p><strong>Room como fuente de verdad (offline-first):</strong> Los productos, listas y pedidos se almacenan
+        primero en Room y la UI siempre lee de ahí. Firestore actúa como capa de sincronización en segundo plano — si no
+        hay conexión, la app sigue funcionando con los datos locales sin mostrar errores al usuario.</p>
+      <p><strong>Carrito como estado efímero en ViewModel:</strong> El carrito no se persiste en base de datos — vive en
+        memoria en el ViewModel como un StateFlow de mapa producto→cantidad. Esto evita escrituras innecesarias en Room
+        para datos que solo existen durante la sesión de compra y simplifica el vaciado al confirmar el pedido.</p>
+      <p><strong>Login dual con Firebase Auth:</strong> Se implementaron dos flujos de autenticación independientes —
+        Google Sign-In mediante ActivityResultContracts y email/contraseña manual — con validación de campos en el
+        ViewModel antes de llamar a Auth, evitando peticiones innecesarias a Firebase con datos incorrectos.</p>
+      <p><strong>Mapbox para selección de dirección:</strong> Se integró el SDK de Mapbox en lugar de Google Maps para
+        el selector de domicilio, con un mapa interactivo que devuelve las coordenadas al ViewModel mediante callback.
+        La dirección seleccionada se muestra también en la pantalla de confirmación de pedido.</p>
+      <p><strong>Animaciones con APIs nativas de Compose:</strong> Las transiciones entre pantallas y la aparición del
+        carrito se implementaron con <code>animateDpAsState</code> y <code>AnimatedContent</code> de Jetpack Compose,
+        sin librerías externas. El carrito solo se renderiza en el árbol de composición cuando tiene productos, evitando
+        recomposiciones innecesarias.</p>
+      <p><strong>Navegación con argumentos tipados:</strong> El grafo de navegación usa NavHost con rutas nombradas y
+        paso de argumentos serializados entre pantallas, evitando el uso de bundles manuales y centralizando toda la
+        lógica de navegación en un único fichero de rutas.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p><i class="fa-regular fa-copyright"></i> 2026 Rafael Martínez — Todos los derechos reservados.</p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Granalladora APH - Proyecto</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-code"></i>RMM</div>
+    <ul>
+      <li><a href="../index.html">Volver al portfolio</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- Introducción -->
+    <section>
+      <h2>Granalladora APH</h2>
+      <p>
+        Suite de aplicaciones de escritorio para la monitorización en tiempo real de máquinas de granallado
+        industrial, desarrollada durante las prácticas en empresa. La solución cubre dos modelos de máquina —
+        <strong>AP2</strong> y <strong>P4</strong> — arrancando una u otra (o ambas simultáneamente) según
+        el valor configurado en un archivo <code>config.ini</code> externo, sin necesidad de recompilar.
+      </p>
+      <p>
+        Comunica con la máquina vía <strong>OPC UA</strong> y obtiene alarmas y avisos activos desde un
+        <strong>WebService WCF</strong> propio, actualizando la interfaz cada segundo (datos OPC) y cada
+        3 segundos (alarmas/avisos).
+      </p>
+    </section>
+
+    <!-- Módulo P4 -->
+    <section>
+      <h2><i class="fa-solid fa-gauge-high"></i> Módulo P4 — Granalladora de 3 cabinas</h2>
+      <p>
+        Monitoriza una granalladora con <strong>3 cabinas independientes</strong>, cada una con
+        <strong>4 turbinas</strong>. Para cada turbina se muestra en tiempo real la corriente (A)
+        y la velocidad de lanzamiento (m/s) mediante gauges animados.
+      </p>
+      <ul>
+        <li><strong>Panel central por cabina:</strong> Factor de corrección, estado granallando (SI/NO en verde/rojo) y
+          receta activa en curso.</li>
+        <li><strong>Panel lateral derecho:</strong> Bobina en inspección, metraje de salida, metraje de granalladora y
+          velocidad de línea — métricas globales del proceso.</li>
+        <li><strong>Alarmas y Avisos:</strong> Dos ventanas separadas, cada una con un DataGrid que se recarga
+          automáticamente cada 3 segundos desde el WebService mostrando solo los registros activos.</li>
+        <li><strong>Node IDs configurables:</strong> Cada variable OPC UA (corriente, velocidad, estados, métricas) se
+          mapea en el <code>config.ini</code>, permitiendo adaptar la app a cualquier servidor sin tocar el código.</li>
+      </ul>
+    </section>
+
+    <!-- Módulo AP2 -->
+    <section>
+      <h2><i class="fa-solid fa-gauge"></i> Módulo AP2 — Granalladora de 2 cabinas</h2>
+      <p>
+        Monitoriza una granalladora con <strong>2 cabinas</strong>, cada una con <strong>4 turbinas</strong>,
+        mostrando corriente y velocidad de lanzamiento en tiempo real con el mismo sistema de gauges.
+      </p>
+      <ul>
+        <li><strong>Barra inferior de estado:</strong> Factor de corrección por cabina, estado granallando de cada
+          cabina y estado global <em>GranalladoraOK</em> en verde/rojo.</li>
+        <li><strong>Reloj en tiempo real:</strong> Fecha y hora actualizados cada segundo en la propia interfaz.</li>
+        <li><strong>Indicador de conexión OPC UA:</strong> Barra de estado que muestra "Sistema Iniciado" en verde o
+          "Error de conexión" en rojo según el resultado del arranque.</li>
+        <li><strong>Cambio de receta:</strong> Ventana modal que permite al operario introducir un nuevo número de
+          receta con validación — solo acepta enteros positivos.</li>
+        <li><strong>Alarmas y Avisos unificados:</strong> Una sola ventana con fondo negro que muestra alarmas en rojo y
+          avisos en naranja en listas separadas, recargadas cada 3 segundos desde el WebService.</li>
+      </ul>
+    </section>
+
+    <!-- Tecnologías -->
+    <section>
+      <h2><i class="fa-solid fa-screwdriver-wrench"></i> Tecnologías usadas</h2>
+      <p><strong>Lenguaje:</strong> C#</p>
+      <p><strong>Framework:</strong> .NET 8, WPF</p>
+      <p><strong>Comunicación industrial:</strong> OPC UA (Opc.Ua SDK), WebService WCF propio</p>
+      <p><strong>UI:</strong> Telerik WPF Gauges (Needle + RadialGauge)</p>
+      <p><strong>Otros:</strong> DispatcherTimer, archivos INI con P/Invoke, config.ini externo, async/await.</p>
+    </section>
+
+    <!-- Galería -->
+    <section>
+      <h2><i class="fa-regular fa-images"></i> Galería de pantallas</h2>
+      <div class="screenshots-grid">
+        <figure class="screenshot-item-windows">
+          <img src="../img/granalladora/p4.png" alt="Módulo P4 — Vista principal con 3 cabinas" />
+          <figcaption>Módulo P4 — 3 cabinas en tiempo real</figcaption>
+        </figure>
+        <figure class="screenshot-item-windows">
+          <img src="../img/granalladora/ap2.png" alt="Módulo AP2 — Vista principal con 2 cabinas" />
+          <figcaption>Módulo AP2 — 2 cabinas en tiempo real</figcaption>
+        </figure>
+        <figure class="screenshot-item-windows">
+          <img src="../img/granalladora/alarmasp4.png" alt="Ventana de alarmas P4" />
+          <figcaption>Alarmas activas P4</figcaption>
+        </figure>
+        <figure class="screenshot-item-windows">
+          <img src="../img/granalladora/cambiorecetaap2.png" alt="Cambio de Receta AP2" />
+          <figcaption>Cambio de receta AP2</figcaption>
+        </figure>
+        <figure class="screenshot-item-windows">
+          <img src="../img/granalladora/avisosp4.png" alt="Ventana de avisos P4" />
+          <figcaption>Avisos activos P4</figcaption>
+        </figure>
+        <figure class="screenshot-item-windows">
+          <img src="../img/granalladora/alarmasavisosap2.png" alt="Ventana alarmas y avisos AP2" />
+          <figcaption>Alarmas y Avisos AP2</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Decisiones técnicas -->
+    <section>
+      <h2><i class="fa-solid fa-gears"></i> Decisiones técnicas</h2>
+      <p><strong>Arranque configurable desde INI:</strong> El <code>App.xaml.cs</code> lee la clave
+        <code>Granalladora</code> del <code>config.ini</code> al iniciar y abre la ventana AP2, P4 o ambas
+        simultáneamente. La misma aplicación se despliega en cualquier entorno industrial sin recompilar.
+      </p>
+      <p><strong>Timer con Stop/Start para OPC UA:</strong> El DispatcherTimer hace <code>Stop()</code> antes de iniciar
+        cada ciclo de lectura y <code>Start()</code> al terminar, evitando que se solapen lecturas si una variable tarda
+        más de 1 segundo en responder.</p>
+      <p><strong>Separación de métodos de lectura:</strong> Se implementaron tres helpers independientes —
+        <code>LeerYActualizarGaugeAsync</code>, <code>LeerYActualizarTextoAsync</code> y
+        <code>LeerYActualizarEstadoAsync</code> — evitando duplicación de lógica en los más de 30 nodos que se leen por
+        ciclo en P4.
+      </p>
+      <p><strong>WebService WCF propio para alarmas:</strong> Las alarmas y avisos no vienen de OPC UA sino de un
+        servicio WCF desarrollado específicamente (<code>ServicioAlarmasAvisosAP4</code>), lo que desacopla el canal de
+        monitorización del canal de alertas y permite filtrar por tipo (1=alarma, 2=aviso) con el mismo método.</p>
+      <p><strong>Node IDs totalmente externalizados:</strong> Ningún identificador OPC UA está hardcodeado en el código.
+        Todos se leen del <code>config.ini</code> por sección y clave, lo que permite reasignar cualquier variable a un
+        nodo diferente del servidor sin modificar la aplicación.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p><i class="fa-regular fa-copyright"></i> 2026 Rafael Martínez — Todos los derechos reservados.</p>
+  </footer>
+</body>
+
+</html>

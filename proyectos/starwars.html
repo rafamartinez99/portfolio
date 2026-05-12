@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StarWars Compose - Proyecto</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-code"></i>RMM</div>
+    <ul>
+      <li><a href="../index.html">Volver al portfolio</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Introducción -->
+    <section>
+      <h2>StarWars Compose</h2>
+      <p>
+        Aplicación Android desarrollada para practicar el consumo de APIs REST con Jetpack Compose.
+        Conecta con la API pública SWAPI para mostrar personajes del universo Star Wars.
+      </p>
+      <p>
+        Al pulsar en un personaje se accede a su detalle completo — datos biográficos, especie,
+        planeta de origen — y las películas en las que aparece con su carátula y fecha de estreno.
+      </p>
+    </section>
+
+    <!-- Funcionalidades -->
+    <section>
+      <h2><i class="fa-solid fa-list-check"></i> Funcionalidades clave</h2>
+      <ul>
+        <li><strong>Listado de personajes:</strong> Carga desde SWAPI con foto, nombre y buscador en tiempo real.</li>
+        <li><strong>Detalle de personaje:</strong> Nacimiento, altura, género, color de pelo, masa, ojos, piel, especie
+          y planeta.</li>
+        <li><strong>Películas del personaje:</strong> Carátula, título, episodio y fecha de estreno en carrusel
+          horizontal.</li>
+        <li><strong>Carga paralela:</strong> Planetas, especies y películas se resuelven simultáneamente con
+          async/awaitAll.</li>
+        <li><strong>Buscador:</strong> Filtrado por nombre sin llamadas extra a la API.</li>
+        <li><strong>Navegación:</strong> Paso de argumentos entre pantallas con NavHost.</li>
+      </ul>
+    </section>
+
+    <!-- Tecnologías -->
+    <section>
+      <h2><i class="fa-solid fa-screwdriver-wrench"></i> Tecnologías usadas</h2>
+      <p><strong>Lenguaje:</strong> Kotlin</p>
+      <p><strong>UI:</strong> Jetpack Compose</p>
+      <p><strong>Red:</strong> Retrofit + kotlinx.serialization</p>
+      <p><strong>Imágenes:</strong> Coil</p>
+      <p><strong>Inyección de dependencias:</strong> Hilt</p>
+      <p><strong>Otros:</strong> StateFlow, Navigation Compose, coroutines.</p>
+    </section>
+
+    <!-- Galería -->
+    <section>
+      <h2><i class="fa-regular fa-images"></i> Galería de pantallas</h2>
+      <div class="screenshots-grid">
+        <figure class="screenshot-item">
+          <img src="../img/starwars/lista.png" alt="Lista de personajes" />
+          <figcaption>Lista</figcaption>
+        </figure>
+        <figure class="screenshot-item">
+          <img src="../img/starwars/detalle.png" alt="Detalle de personaje" />
+          <figcaption>Detalle</figcaption>
+        </figure>
+        <figure class="screenshot-item">
+          <img src="../img/starwars/peliculas.png" alt="Películas del personaje" />
+          <figcaption>Películas</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Decisiones técnicas -->
+    <section>
+      <h2><i class="fa-solid fa-gears"></i> Decisiones técnicas</h2>
+      <p><strong>Carga paralela con async/awaitAll:</strong> Planetas, especies y películas se resuelven en paralelo en
+        lugar de secuencialmente, reduciendo el tiempo de carga total.</p>
+      <p><strong>ViewModel compartido:</strong> Un único StarWarsViewModel inyectado con Hilt gestiona el estado de
+        ambas pantallas, evitando recargas innecesarias al navegar.</p>
+      <p><strong>Serialización con kotlinx:</strong> Uso de @SerialName para mapear los campos snake_case de la API
+        directamente al modelo sin capas intermedias.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p><i class="fa-regular fa-copyright"></i> 2026 Rafael Martínez — Todos los derechos reservados.</p>
+  </footer>
+</body>
+
+</html>

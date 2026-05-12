@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EncryptorACX - Proyecto</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-code"></i>RMM</div>
+    <ul>
+      <li><a href="../index.html">Volver al portfolio</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>EncryptorACX</h2>
+      <p>
+        Herramienta de escritorio desarrollada durante las prácticas en empresa para cifrar credenciales
+        sensibles mediante el algoritmo AES antes de almacenarlas o transmitirlas en los sistemas internos.
+      </p>
+      <p>
+        La aplicación cifra el texto introducido y lo copia automáticamente al portapapeles, agilizando
+        el flujo de trabajo del equipo técnico sin necesidad de herramientas externas.
+      </p>
+    </section>
+
+    <section>
+      <h2><i class="fa-solid fa-list-check"></i> Funcionalidades clave</h2>
+      <ul>
+        <li><strong>Cifrado AES (RijndaelManaged):</strong> Modo CBC con padding PKCS7 y feedback de 128 bits.</li>
+        <li><strong>Copia automática:</strong> El resultado cifrado se copia al portapapeles al pulsar el botón.</li>
+        <li><strong>Snackbar animado:</strong> Feedback visual con animaciones fade-in/fade-out y auto-ocultado a los 3
+          segundos.</li>
+        <li><strong>Acceso rápido por teclado:</strong> Cifrado con Enter sin necesidad de usar el ratón.</li>
+        <li><strong>Feedback de error:</strong> Mensaje diferenciado en caso de campo vacío o fallo en el cifrado.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><i class="fa-solid fa-screwdriver-wrench"></i> Tecnologías usadas</h2>
+      <p><strong>Lenguaje:</strong> C#</p>
+      <p><strong>Framework:</strong> .NET, WPF</p>
+      <p><strong>Criptografía:</strong> System.Security.Cryptography (RijndaelManaged / AES)</p>
+      <p><strong>UI:</strong> XAML con estilos personalizados y animaciones con Storyboard</p>
+    </section>
+
+    <section>
+      <h2><i class="fa-regular fa-images"></i> Galería de pantallas</h2>
+      <div class="screenshots-grid">
+        <figure class="screenshot-item-windows">
+          <img src="../img/encryptoracx/inicio.png" alt="Pantalla inicial" />
+          <figcaption>Pantalla inicial</figcaption>
+        </figure>
+        <figure class="screenshot-item-windows">
+          <img src="../img/encryptoracx/cifrado.png" alt="Resultado cifrado" />
+          <figcaption>Resultado cifrado</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2><i class="fa-solid fa-gears"></i> Decisiones técnicas</h2>
+      <p><strong>RijndaelManaged con CBC + PKCS7:</strong> Configuración estándar de AES que garantiza compatibilidad
+        con otros sistemas de la empresa que descifran el mismo formato.</p>
+      <p><strong>Snackbar con DispatcherTimer:</strong> En lugar de un MessageBox bloqueante, se implementó un feedback
+        no intrusivo que desaparece automáticamente para no interrumpir el flujo de trabajo.</p>
+      <p><strong>Resultado visible en pantalla:</strong> Además de copiarse al portapapeles, el texto cifrado se muestra
+        en un campo de solo lectura para que el usuario pueda verificarlo antes de usarlo.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p><i class="fa-regular fa-copyright"></i> 2026 Rafael Martínez — Todos los derechos reservados.</p>
+  </footer>
+</body>
+
+</html>
