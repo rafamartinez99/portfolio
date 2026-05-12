@@ -39,4 +39,3 @@ App Android que consume la API pública SWAPI para explorar personajes y pelícu
 
 - rafamartineez99@gmail.com
 - [LinkedIn](https://linkedin.com/in/rafamartinez99)
-- [GitHub](https://github.com/rafamartinez99)
