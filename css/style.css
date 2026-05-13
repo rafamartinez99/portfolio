@@ -67,6 +67,10 @@ header {
   gap: 30px;
 }
 
+.nav-menu {
+  display: flex !important;
+}
+
 .navbar ul li a {
   color: white;
   text-decoration: none;
@@ -107,6 +111,18 @@ header {
 
 .navbar ul li a.active::after {
   display: none;
+}
+
+
+/* Hamburger - hidden on desktop */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 4px 8px;
 }
 
 
@@ -575,4 +591,175 @@ footer {
 footer i {
   margin-right: 6px;
   color: #93c5fd;
+}
+
+/* ============================= */
+/* MEDIA QUERIES - MÓVIL */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+  /* NAVBAR */
+  .navbar {
+    flex-direction: row;
+    padding: 15px 20px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none !important;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to right, #3b82f6, #6366f1);
+    gap: 4px;
+    padding: 10px 20px 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+
+  .nav-menu.open {
+    display: flex !important;
+  }
+
+  .navbar ul li a {
+    padding: 10px 12px;
+    font-size: 1rem;
+    display: flex;
+    gap: 8px;
+    border-radius: 6px;
+  }
+
+  .navbar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  /* HERO */
+  .home-text {
+    padding: 50px 20px 70px;
+  }
+
+  .home-text h1 {
+    font-size: 1.4rem;
+  }
+
+  .home-text .highlight {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .pitch {
+    font-size: 1rem;
+  }
+
+  /* SECCIONES */
+  section {
+    padding: 25px 16px;
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  /* TECNOLOGÍAS */
+  .tech-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 14px;
+  }
+
+  .tech-item img {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* PROYECTOS */
+  .project-row,
+  .project-row.reverse {
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px;
+    border-right: none;
+    border-left: 6px solid #3b82f6;
+  }
+
+  .project-row:nth-child(even),
+  .project-row.reverse:nth-child(even) {
+    border-left: 6px solid #6366f1;
+  }
+
+  /* Siempre: info arriba, imagen abajo */
+  .project-row .project-info,
+  .project-row.reverse .project-info {
+    order: 1;
+  }
+
+  .project-row .project-img,
+  .project-row.reverse .project-img,
+  .project-img-granalladora {
+    order: 2;
+  }
+
+  .project-img,
+  .project-img-granalladora {
+    flex: unset;
+    width: 100%;
+  }
+
+  .project-img img,
+  .project-img-granalladora img {
+    max-height: 200px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  /* GALERÍA */
+  .screenshots-grid {
+    gap: 20px;
+  }
+
+  .screenshot-item {
+    width: 140px;
+  }
+
+  .screenshot-item img {
+    width: 140px;
+    height: 310px;
+  }
+
+  .screenshot-item-windows img {
+    width: 100%;
+  }
+
+  /* CONTACTO */
+  .contact-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* CV BOTÓN */
+  .cv-btn {
+    font-size: 1rem;
+    padding: 14px 28px;
+  }
 }

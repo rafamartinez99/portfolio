@@ -1,6 +1,28 @@
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".navbar ul li a");
 
+// HAMBURGER MENU
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", () => {
+  navMenu.classList.toggle("open");
+  const icon = hamburger.querySelector("i");
+  icon.classList.toggle("fa-bars");
+  icon.classList.toggle("fa-xmark");
+});
+
+// Cerrar menú al hacer clic en un link
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("open");
+    const icon = hamburger.querySelector("i");
+    icon.classList.add("fa-bars");
+    icon.classList.remove("fa-xmark");
+  });
+});
+
+
 function updateActiveLink() {
   const scrollY = window.scrollY;
   const pageBottom = window.innerHeight + scrollY;
