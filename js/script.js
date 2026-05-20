@@ -1,5 +1,6 @@
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".navbar ul li a");
+const revealElements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
 
 // HAMBURGER MENU
 const hamburger = document.querySelector(".hamburger");
@@ -21,7 +22,6 @@ navLinks.forEach(link => {
     icon.classList.remove("fa-xmark");
   });
 });
-
 
 function updateActiveLink() {
   const scrollY = window.scrollY;
@@ -58,6 +58,22 @@ function setActive(id) {
     link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
   });
 }
+
+// SCROLL REVEAL
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: "0px 0px -60px 0px"
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
 
 window.addEventListener("scroll", updateActiveLink);
 window.addEventListener("load", updateActiveLink);

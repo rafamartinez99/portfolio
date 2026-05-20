@@ -5,6 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agente SFTP - Proyecto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap">
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
@@ -17,7 +21,7 @@
     </ul>
   </nav>
 
-  <main>
+  <main class="project-page">
     <!-- Introducción -->
     <section>
       <h2>Agente SFTP</h2>
@@ -46,14 +50,16 @@
         <li><strong>Gestión de conflictos de nombre:</strong> Si ya existe un archivo con el mismo nombre en el servidor
           remoto o en la carpeta <code>enviados/</code>, se renombra automáticamente añadiendo un timestamp.</li>
         <li><strong>Carpeta de enviados:</strong> Los archivos subidos correctamente se mueven a una subcarpeta
-          <code>enviados/</code> del origen para mantener un historial local.</li>
+          <code>enviados/</code> del origen para mantener un historial local.
+        </li>
         <li><strong>Limpieza automática:</strong> Timer diario que elimina archivos de <code>enviados/</code> con más de
           30 días de antigüedad, evitando el crecimiento indefinido del directorio.</li>
         <li><strong>Credenciales cifradas con AES:</strong> Las contraseñas nunca se almacenan en texto plano — se
           cifran con EncryptorACX y se desencriptan en memoria al arrancar.</li>
         <li><strong>Log rotativo asíncrono:</strong> Sistema de logging con formato Syslog que escribe en un hilo
           dedicado mediante <code>BlockingCollection</code>, con rotación mensual automática a
-          <code>conexion_old.log</code>.</li>
+          <code>conexion_old.log</code>.
+        </li>
         <li><strong>Tooltip dinámico:</strong> El icono de bandeja muestra en tiempo real el número de orígenes activos,
           la hora de la última subida y los archivos transferidos durante el día.</li>
         <li><strong>Menú contextual:</strong> Clic derecho sobre el icono permite abrir el log actual directamente en el

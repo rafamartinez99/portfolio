@@ -5,9 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rafael Martínez - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
 </head>
 
 <body>
@@ -26,21 +29,21 @@
         </ul>
     </nav>
 
+    <div id="home"></div>
     <header>
-        <div class="home-text" id="home">
+        <div class="home-text">
             <h1>Hola, soy <span class="highlight">Rafael Martínez</span></h1>
             <div class="underline"></div>
             <p class="subtitle">Programador en busca de retos reales</p>
             <p class="pitch">Desarrollo aplicaciones robustas, limpias y fáciles de mantener.</p>
             <a href="#projects" class="btn">Ver mis proyectos</a>
         </div>
-
     </header>
 
     <!-- MAIN -->
     <main>
         <!-- Sobre mí -->
-        <section id="about">
+        <section id="about" class="reveal">
             <h2>Sobre mí</h2>
             <p>
                 Soy un programador de España con una mentalidad muy enfocada en crear software que funcione bien,
@@ -99,19 +102,15 @@
                         <img src="img/firebase.png" alt="Firebase" title="Firebase">
                         <p>Firebase</p>
                     </div>
-                    <div class="tech-item">
-                        <img src="img/github.png" alt="GitHub" title="GitHub">
-                        <p>GitHub</p>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Proyectos -->
-        <section id="projects">
+        <section id="projects" class="reveal">
             <h2>Proyectos destacados</h2>
 
-            <div class="project-row">
+            <div class="project-row reveal-left">
                 <div class="project-info">
                     <h3><a href="proyectos/agentesftp.html">Agente SFTP</a></h3>
                     <p>
@@ -119,14 +118,16 @@
                         los archivos detectados a servidores SFTP de forma automática, ejecutándose en
                         segundo plano desde la bandeja del sistema.
                     </p>
-                    <p><strong>Tecnologías:</strong> C#, .NET 8, SSH.NET, Windows Forms</p>
+                    <div class="tech-badges"><span class="badge">C#</span><span class="badge">NET 8</span><span
+                            class="badge">SSH.NET</span><span class="badge">Windows Forms</span></div>
+                    <a href="proyectos/agentesftp.html" class="project-link">Ver proyecto</a>
                 </div>
                 <div class="project-img">
                     <img src="img/agentesftp.png" alt="Agente SFTP" />
                 </div>
             </div>
 
-            <div class="project-row reverse">
+            <div class="project-row reverse reveal-right">
                 <div class="project-img">
                     <img src="img/encryptoracx.png" alt="EncryptorACX" />
                 </div>
@@ -136,11 +137,13 @@
                         Herramienta de escritorio desarrollada en prácticas para cifrar credenciales
                         mediante AES, usada por el Agente SFTP en su archivo de configuración externo.
                     </p>
-                    <p><strong>Tecnologías:</strong> C#, .NET, WPF, AES</p>
+                    <div class="tech-badges"><span class="badge">C#</span><span class="badge">.NET</span><span
+                            class="badge">WPF</span><span class="badge">AES</span></div>
+                    <a href="proyectos/encryptoracx.html" class="project-link">Ver proyecto</a>
                 </div>
             </div>
 
-            <div class="project-row">
+            <div class="project-row reveal-left">
                 <div class="project-info">
                     <h3><a href="proyectos/granalladora.html">Granalladora APH</a></h3>
                     <p>Suite de aplicaciones de escritorio para monitorización en tiempo real de máquinas de granallado
@@ -149,7 +152,10 @@
                         seleccionables desde archivo de configuración sin recompilar.</p>
                     <p>Comunicación con la máquina vía <strong>OPC UA</strong> y <strong>WCF</strong>,
                         con temporizadores de refresco de datos y arquitectura modular en WPF.</p>
-                    <p><strong>Tecnologías:</strong> C#, .NET 8, WPF, OPC UA, WCF</p>
+                    <div class="tech-badges"><span class="badge">C#</span><span class="badge">.NET 8</span><span
+                            class="badge">WPF</span><span class="badge">OPC UA</span><span class="badge">WCF</span>
+                    </div>
+                    <a href="proyectos/granalladora.html" class="project-link">Ver proyecto</a>
                 </div>
 
                 <div class="project-img-granalladora">
@@ -157,7 +163,7 @@
                 </div>
             </div>
 
-            <div class="project-row reverse">
+            <div class="project-row reverse reveal-right">
                 <div class="project-img">
                     <img src="img/supermanzanares.png" alt="SuperManzanares" />
                 </div>
@@ -166,16 +172,21 @@
                     <p>App de supermercado para Android que permite explorar productos, crear listas, comprar, y
                         gestionar
                         pedidos. Login con Google, mapas con direcciones y almacenamiento en Firebase.</p>
-                    <p><strong>Tecnologías:</strong> Kotlin, Jetpack Compose, Firebase, Room, Mapbox</p>
+                    <div class="tech-badges"><span class="badge">Kotlin</span><span class="badge">Jetpack
+                            Compose</span><span class="badge">Firebase</span><span class="badge">Room</span><span
+                            class="badge">Mapbox</span></div>
+                    <a href="proyectos/supermanzanares.html" class="project-link">Ver proyecto</a>
                 </div>
             </div>
 
-            <div class="project-row">
+            <div class="project-row reveal-left">
                 <div class="project-info">
                     <h3><a href="proyectos/starwars.html">StarWars Compose</a></h3>
                     <p>Aplicación Android que consume la API pública SWAPI para explorar personajes del universo Star
                         Wars, mostrando detalles sobre los personajes y películas en las que aparecen.</p>
-                    <p><strong>Tecnologías:</strong> Kotlin, Jetpack Compose, Retrofit, Coil</p>
+                    <div class="tech-badges"><span class="badge">Kotlin</span><span class="badge">Jetpack
+                            Compose</span><span class="badge">Retrofit</span><span class="badge">Coil</span></div>
+                    <a href="proyectos/starwars.html" class="project-link">Ver proyecto</a>
                 </div>
                 <div class="project-img">
                     <img src="img/starwars.png" alt="StarWars Compose" />
@@ -184,7 +195,7 @@
         </section>
 
         <!-- CV -->
-        <section id="cv" class="cv-section">
+        <section id="cv" class="cv-section reveal">
             <h2>Mi Currículum Vitae</h2>
             <p>
                 Si quieres conocer mi experiencia, habilidades y proyectos en detalle,
@@ -198,7 +209,7 @@
         </section>
 
         <!-- Contacto -->
-        <section id="contact">
+        <section id="contact" class="reveal">
             <h2>Contacto</h2>
             <p class="contact-text">
                 Estoy disponible para colaborar en nuevos proyectos, resolver dudas o simplemente charlar sobre
