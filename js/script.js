@@ -77,3 +77,6 @@ revealElements.forEach(el => revealObserver.observe(el));
 
 window.addEventListener("scroll", updateActiveLink);
 window.addEventListener("load", updateActiveLink);
+
+// Set current year in footer
+document.getElementById("year").textContent = new Date().getFullYear();
