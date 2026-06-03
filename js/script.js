@@ -78,6 +78,49 @@ revealElements.forEach(el => revealObserver.observe(el));
 window.addEventListener("scroll", updateActiveLink);
 window.addEventListener("load", updateActiveLink);
 
+// Typing effect
+function typeText(element, text, speed, keepCursor, onDone) {
+  const cursor = document.createElement("span");
+  cursor.classList.add("typing-cursor");
+  cursor.textContent = "|";
+  element.appendChild(cursor);
+
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < text.length) {
+      element.insertBefore(document.createTextNode(text[i]), cursor);
+      i++;
+    } else {
+      clearInterval(interval);
+      if (keepCursor) {
+        let blinks = 0;
+        const blinkInterval = setInterval(() => {
+          blinks++;
+          if (blinks >= 2) {
+            clearInterval(blinkInterval);
+            cursor.classList.add("done");
+            if (onDone) onDone();
+          }
+        }, 500);
+      } else {
+        cursor.classList.add("done");
+        setTimeout(() => { if (onDone) onDone(); }, 500);
+      }
+    }
+  }, speed);
+}
+
+const subtitleEl = document.querySelector(".subtitle");
+const pitchEl = document.querySelector(".pitch");
+const subtitleText = subtitleEl.dataset.text;
+const pitchText = pitchEl.dataset.text;
+
+setTimeout(() => {
+  typeText(subtitleEl, subtitleText, 65, false, () => {
+    typeText(pitchEl, pitchText, 55, true, null);
+  });
+}, 1000);
+
 // Set current year in footer
 document.getElementById("year").textContent = new Date().getFullYear();
 

@@ -218,6 +218,23 @@ header::after {
   margin-bottom: 12px;
 }
 
+.typing-cursor {
+  color: var(--accent);
+  margin-left: 1px;
+  animation: cursorBlink 0.7s step-end infinite;
+}
+
+.typing-cursor.done {
+  animation: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .pitch {
   font-size: 1rem;
   color: var(--text-muted);
