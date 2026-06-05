@@ -467,6 +467,106 @@ h3 {
 }
 
 /* ============================= */
+/* TIMELINE */
+/* ============================= */
+
+.timeline {
+  position: relative;
+  padding-left: 44px;
+  margin-top: 12px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, #38bdf8, #818cf8);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 36px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -34px;
+  top: 4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-card2);
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 0.7rem;
+  z-index: 1;
+}
+
+.timeline-content {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  transition: border-color 0.3s ease;
+}
+
+.timeline-content:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.timeline-date {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.timeline-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 6px 0 4px;
+}
+
+.timeline-type {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.timeline-company {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--accent2);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.timeline-company i {
+  margin-right: 5px;
+  font-size: 0.8rem;
+}
+
+.timeline-content p {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+/* ============================= */
 /* PROYECTOS */
 /* ============================= */
 
