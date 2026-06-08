@@ -138,3 +138,42 @@ window.addEventListener("scroll", () => {
 backToTop.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+// Animated stats counters
+const statNumbers = document.querySelectorAll(".stat-number");
+
+function animateCounter(el) {
+  if (el.dataset.text) {
+    el.textContent = el.dataset.text;
+    return;
+  }
+
+  const target = parseInt(el.dataset.target, 10);
+  const duration = 1200;
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    el.textContent = Math.floor(progress * target);
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      el.textContent = target;
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+statNumbers.forEach(el => statsObserver.observe(el));
