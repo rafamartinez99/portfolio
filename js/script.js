@@ -69,8 +69,8 @@ const revealObserver = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: 0.1,
-  rootMargin: "0px 0px -60px 0px"
+  threshold: 0.08,
+  rootMargin: "0px 0px -20px 0px"
 });
 
 revealElements.forEach(el => revealObserver.observe(el));
@@ -177,3 +177,18 @@ const statsObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 statNumbers.forEach(el => statsObserver.observe(el));
+
+// Cursor spotlight (desktop only)
+if (window.matchMedia("(hover: hover)").matches) {
+  const spotlight = document.getElementById("cursor-spotlight");
+
+  document.addEventListener("mousemove", (e) => {
+    spotlight.style.left = e.clientX + "px";
+    spotlight.style.top = e.clientY + "px";
+    spotlight.style.opacity = "1";
+  });
+
+  document.addEventListener("mouseleave", () => {
+    spotlight.style.opacity = "0";
+  });
+}
