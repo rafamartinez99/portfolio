@@ -467,6 +467,63 @@ h3 {
 }
 
 /* ============================= */
+/* HERO BLOBS */
+/* ============================= */
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.30;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--accent);
+  top: -100px;
+  left: -150px;
+  animation: blobFloat1 12s ease-in-out infinite;
+}
+
+.blob-2 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent2);
+  bottom: -80px;
+  right: -100px;
+  animation: blobFloat2 15s ease-in-out infinite;
+}
+
+.blob-3 {
+  width: 300px;
+  height: 300px;
+  background: var(--accent);
+  top: 40%;
+  left: 55%;
+  animation: blobFloat3 18s ease-in-out infinite;
+}
+
+@keyframes blobFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(60px, 40px) scale(1.1); }
+  66%       { transform: translate(-30px, 70px) scale(0.95); }
+}
+
+@keyframes blobFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-50px, -60px) scale(1.05); }
+  66%       { transform: translate(40px, -30px) scale(1.1); }
+}
+
+@keyframes blobFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(-40px, 50px) scale(1.08); }
+}
+
+/* ============================= */
 /* STATS */
 /* ============================= */
 
@@ -502,6 +559,21 @@ h3 {
 }
 
 @media (max-width: 768px) {
+  .blob-1 {
+    width: 280px;
+    height: 280px;
+  }
+
+  .blob-2 {
+    width: 240px;
+    height: 240px;
+  }
+
+  .blob-3 {
+    width: 180px;
+    height: 180px;
+  }
+
   .stats {
     grid-template-columns: repeat(2, 1fr);
     gap: 32px 16px;
