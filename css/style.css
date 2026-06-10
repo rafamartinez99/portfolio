@@ -872,6 +872,7 @@ h3 {
 
 .project-img img {
   width: 100%;
+  height: auto;
   border-radius: 10px;
   border: 1px solid var(--border);
   object-fit: contain;
@@ -890,6 +891,7 @@ h3 {
 
 .project-img-granalladora img {
   width: 100%;
+  height: auto;
   border-radius: 10px;
   border: 1px solid var(--border);
   object-fit: cover;
