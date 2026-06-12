@@ -34,6 +34,14 @@ body {
   overflow-x: hidden;
 }
 
+/* Iconos SVG inline: se escalan con el font-size y heredan el color del texto */
+.icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: -0.125em;
+}
+
 /* ============================= */
 /* NAVBAR */
 /* ============================= */
@@ -63,7 +71,7 @@ body {
   letter-spacing: 2px;
 }
 
-.navbar .logo i {
+.navbar .logo .icon {
   color: var(--accent2);
 }
 
@@ -92,7 +100,7 @@ body {
   letter-spacing: 0.5px;
 }
 
-.navbar ul li i {
+.navbar ul li .icon {
   font-size: 0.85rem;
   color: var(--accent2);
 }
@@ -122,6 +130,18 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
   padding: 4px 8px;
+}
+
+.hamburger .icon-xmark {
+  display: none;
+}
+
+.hamburger.open .icon-bars {
+  display: none;
+}
+
+.hamburger.open .icon-xmark {
+  display: inline-block;
 }
 
 /* ============================= */
@@ -689,7 +709,7 @@ h3 {
   font-weight: 500;
 }
 
-.timeline-company i {
+.timeline-company .icon {
   margin-right: 5px;
   font-size: 0.8rem;
 }
@@ -861,7 +881,7 @@ h3 {
   opacity: 0.55;
 }
 
-.project-private i {
+.project-private .icon {
   font-size: 0.72rem;
   margin-right: 4px;
 }
@@ -1015,18 +1035,15 @@ h3 {
   background: rgba(56, 189, 248, 0.04);
 }
 
-.contact-card i {
+.contact-card .icon {
   font-size: 2rem;
   margin-bottom: 12px;
-  background: var(--gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  fill: url(#icon-gradient);
   transition: transform 0.3s ease;
   display: inline-block;
 }
 
-.contact-card:hover i {
+.contact-card:hover .icon {
   transform: scale(1.2);
 }
 
@@ -1059,13 +1076,13 @@ h3 {
 
 .cv-icon {
   font-size: 7rem;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   opacity: 0.15;
   flex-shrink: 0;
   line-height: 1;
+}
+
+.cv-icon .icon {
+  fill: url(#icon-gradient);
 }
 
 @media (max-width: 768px) {
@@ -1113,7 +1130,7 @@ footer {
   letter-spacing: 0.4px;
 }
 
-footer i {
+footer .icon {
   margin-right: 6px;
   color: var(--accent2);
 }

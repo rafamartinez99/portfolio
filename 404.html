@@ -11,12 +11,17 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap">
   <link rel="stylesheet" href="/portfolio/css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body class="page-404">
+  <!-- Iconos SVG inline (Font Awesome Free 6.5.2 - CC BY 4.0 - https://fontawesome.com/license/free) -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-code" viewBox="0 0 640 512"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></symbol>
+      <symbol id="i-arrow-left" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></symbol>
+      <symbol id="i-copyright" viewBox="0 0 512 512"><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM199.4 312.6c-31.2-31.2-31.2-81.9 0-113.1s81.9-31.2 113.1 0c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9c-50-50-131-50-181 0s-50 131 0 181s131 50 181 0c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0c-31.2 31.2-81.9 31.2-113.1 0z"/></symbol>
+  </svg>
   <nav class="navbar">
-    <div class="logo"><i class="fa-solid fa-code"></i>RMM</div>
+    <div class="logo"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg>RMM</div>
     <ul>
       <li><a href="/portfolio/">Volver al portfolio</a></li>
     </ul>
@@ -27,12 +32,12 @@
     <h1>Página no encontrada</h1>
     <p>La página que buscas no existe o ha sido movida.</p>
     <a href="/portfolio/" class="not-found-btn">
-      <i class="fa-solid fa-arrow-left"></i> Volver al inicio
+      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg> Volver al inicio
     </a>
   </main>
 
   <footer>
-    <p><i class="fa-regular fa-copyright"></i> <span id="year"></span> · Rafael Martínez — Todos los derechos reservados.</p>
+    <p><svg class="icon" aria-hidden="true"><use href="#i-copyright"/></svg> <span id="year"></span> · Rafael Martínez — Todos los derechos reservados.</p>
   </footer>
   <script src="/portfolio/js/common.js"></script>
 </body>

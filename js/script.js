@@ -8,18 +8,14 @@ const navMenu = document.querySelector(".nav-menu");
 
 hamburger.addEventListener("click", () => {
   navMenu.classList.toggle("open");
-  const icon = hamburger.querySelector("i");
-  icon.classList.toggle("fa-bars");
-  icon.classList.toggle("fa-xmark");
+  hamburger.classList.toggle("open");
 });
 
 // Cerrar menú al hacer clic en un link
 navLinks.forEach(link => {
   link.addEventListener("click", () => {
     navMenu.classList.remove("open");
-    const icon = hamburger.querySelector("i");
-    icon.classList.add("fa-bars");
-    icon.classList.remove("fa-xmark");
+    hamburger.classList.remove("open");
   });
 });
 
