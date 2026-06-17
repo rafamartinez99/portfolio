@@ -39,8 +39,8 @@
       <h2>Granalladora APH</h2>
       <p>
         Suite de aplicaciones de escritorio para la monitorización en tiempo real de máquinas de granallado
-        industrial, desarrollada durante las prácticas en empresa. La solución cubre dos modelos de máquina —
-        <strong>AP2</strong> y <strong>P4</strong> — arrancando una u otra (o ambas simultáneamente) según
+        industrial, desarrollada durante las prácticas en empresa. La solución cubre dos modelos de máquina -
+        <strong>AP2</strong> y <strong>P4</strong> - arrancando una u otra (o ambas simultáneamente) según
         el valor configurado en un archivo <code>config.ini</code> externo, sin necesidad de recompilar.
       </p>
       <p>
@@ -52,7 +52,7 @@
 
     <!-- Módulo P4 -->
     <section>
-      <h2><svg class="icon" aria-hidden="true"><use href="#i-gauge-high"/></svg> Módulo P4 — Granalladora de 3 cabinas</h2>
+      <h2><svg class="icon" aria-hidden="true"><use href="#i-gauge-high"/></svg> Módulo P4 - Granalladora de 3 cabinas</h2>
       <p>
         Monitoriza una granalladora con <strong>3 cabinas independientes</strong>, cada una con
         <strong>4 turbinas</strong>. Para cada turbina se muestra en tiempo real la corriente (A)
@@ -62,7 +62,7 @@
         <li><strong>Panel central por cabina:</strong> Factor de corrección, estado granallando (SI/NO en verde/rojo) y
           receta activa en curso.</li>
         <li><strong>Panel lateral derecho:</strong> Bobina en inspección, metraje de salida, metraje de granalladora y
-          velocidad de línea — métricas globales del proceso.</li>
+          velocidad de línea - métricas globales del proceso.</li>
         <li><strong>Alarmas y Avisos:</strong> Dos ventanas separadas, cada una con un DataGrid que se recarga
           automáticamente cada 3 segundos desde el WebService mostrando solo los registros activos.</li>
         <li><strong>Node IDs configurables:</strong> Cada variable OPC UA (corriente, velocidad, estados, métricas) se
@@ -72,7 +72,7 @@
 
     <!-- Módulo AP2 -->
     <section>
-      <h2><svg class="icon" aria-hidden="true"><use href="#i-gauge"/></svg> Módulo AP2 — Granalladora de 2 cabinas</h2>
+      <h2><svg class="icon" aria-hidden="true"><use href="#i-gauge"/></svg> Módulo AP2 - Granalladora de 2 cabinas</h2>
       <p>
         Monitoriza una granalladora con <strong>2 cabinas</strong>, cada una con <strong>4 turbinas</strong>,
         mostrando corriente y velocidad de lanzamiento en tiempo real con el mismo sistema de gauges.
@@ -84,7 +84,7 @@
         <li><strong>Indicador de conexión OPC UA:</strong> Barra de estado que muestra "Sistema Iniciado" en verde o
           "Error de conexión" en rojo según el resultado del arranque.</li>
         <li><strong>Cambio de receta:</strong> Ventana modal que permite al operario introducir un nuevo número de
-          receta con validación — solo acepta enteros positivos.</li>
+          receta con validación - solo acepta enteros positivos.</li>
         <li><strong>Alarmas y Avisos unificados:</strong> Una sola ventana con fondo negro que muestra alarmas en rojo y
           avisos en naranja en listas separadas, recargadas cada 3 segundos desde el WebService.</li>
       </ul>
@@ -105,12 +105,12 @@
       <h2><svg class="icon" aria-hidden="true"><use href="#i-images"/></svg> Galería de pantallas</h2>
       <div class="screenshots-grid">
         <figure class="screenshot-item-windows">
-          <img src="../img/granalladora/p4.webp" alt="Módulo P4 — Vista principal con 3 cabinas" width="1000" height="532" loading="lazy" />
-          <figcaption>Módulo P4 — 3 cabinas en tiempo real</figcaption>
+          <img src="../img/granalladora/p4.webp" alt="Módulo P4 - Vista principal con 3 cabinas" width="1000" height="532" loading="lazy" />
+          <figcaption>Módulo P4 - 3 cabinas en tiempo real</figcaption>
         </figure>
         <figure class="screenshot-item-windows">
-          <img src="../img/granalladora/ap2.webp" alt="Módulo AP2 — Vista principal con 2 cabinas" width="1000" height="546" loading="lazy" />
-          <figcaption>Módulo AP2 — 2 cabinas en tiempo real</figcaption>
+          <img src="../img/granalladora/ap2.webp" alt="Módulo AP2 - Vista principal con 2 cabinas" width="1000" height="546" loading="lazy" />
+          <figcaption>Módulo AP2 - 2 cabinas en tiempo real</figcaption>
         </figure>
         <figure class="screenshot-item-windows">
           <img src="../img/granalladora/alarmasp4.webp" alt="Ventana de alarmas P4" width="1000" height="540" loading="lazy" />
@@ -141,9 +141,9 @@
       <p><strong>Timer con Stop/Start para OPC UA:</strong> El DispatcherTimer hace <code>Stop()</code> antes de iniciar
         cada ciclo de lectura y <code>Start()</code> al terminar, evitando que se solapen lecturas si una variable tarda
         más de 1 segundo en responder.</p>
-      <p><strong>Separación de métodos de lectura:</strong> Se implementaron tres helpers independientes —
+      <p><strong>Separación de métodos de lectura:</strong> Se implementaron tres helpers independientes -
         <code>LeerYActualizarGaugeAsync</code>, <code>LeerYActualizarTextoAsync</code> y
-        <code>LeerYActualizarEstadoAsync</code> — evitando duplicación de lógica en los más de 30 nodos que se leen por
+        <code>LeerYActualizarEstadoAsync</code> - evitando duplicación de lógica en los más de 30 nodos que se leen por
         ciclo en P4.
       </p>
       <p><strong>WebService WCF propio para alarmas:</strong> Las alarmas y avisos no vienen de OPC UA sino de un
@@ -157,7 +157,7 @@
   </main>
 
   <footer>
-    <p><svg class="icon" aria-hidden="true"><use href="#i-copyright"/></svg> <span id="year"></span> · Rafael Martínez — Todos los derechos reservados.</p>
+    <p><svg class="icon" aria-hidden="true"><use href="#i-copyright"/></svg> <span id="year"></span> · Rafael Martínez - Todos los derechos reservados.</p>
   </footer>
   <script src="../js/common.js"></script>
 </body>

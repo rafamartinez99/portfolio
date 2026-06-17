@@ -41,8 +41,8 @@
         SFTP, ejecutándose en segundo plano desde la bandeja del sistema de Windows.
       </p>
       <p>
-        Cada origen se configura de forma independiente en un archivo <code>config.ini</code> externo —
-        servidor, credenciales cifradas, carpeta local y frecuencia de revisión — sin necesidad de recompilar
+        Cada origen se configura de forma independiente en un archivo <code>config.ini</code> externo -
+        servidor, credenciales cifradas, carpeta local y frecuencia de revisión - sin necesidad de recompilar
         la aplicación para adaptarla a nuevos entornos o máquinas.
       </p>
     </section>
@@ -64,7 +64,7 @@
         </li>
         <li><strong>Limpieza automática:</strong> Timer diario que elimina archivos de <code>enviados/</code> con más de
           30 días de antigüedad, evitando el crecimiento indefinido del directorio.</li>
-        <li><strong>Credenciales cifradas con AES:</strong> Las contraseñas nunca se almacenan en texto plano — se
+        <li><strong>Credenciales cifradas con AES:</strong> Las contraseñas nunca se almacenan en texto plano - se
           cifran con EncryptorACX y se desencriptan en memoria al arrancar.</li>
         <li><strong>Log rotativo asíncrono:</strong> Sistema de logging con formato Syslog que escribe en un hilo
           dedicado mediante <code>BlockingCollection</code>, con rotación mensual automática a
@@ -109,10 +109,10 @@
         hilo dedicado de larga duración, evitando que las escrituras en disco bloqueen los timers de subida cuando
         varios orígenes generan eventos simultáneamente.</p>
       <p><strong>Reintentos inteligentes:</strong> El sistema reintenta automáticamente en errores de red o servidor no
-        disponible, pero interrumpe inmediatamente ante errores de autenticación — reintentar en ese caso sería inútil y
+        disponible, pero interrumpe inmediatamente ante errores de autenticación - reintentar en ese caso sería inútil y
         podría bloquear la cuenta en el servidor.</p>
       <p><strong>Verificación de archivo disponible:</strong> Antes de cada subida se intenta abrir el archivo en modo
-        exclusivo. Si está bloqueado por otro proceso — por ejemplo, está siendo generado o copiado — se omite en esa
+        exclusivo. Si está bloqueado por otro proceso - por ejemplo, está siendo generado o copiado - se omite en esa
         iteración y se reintentará en el siguiente ciclo del timer.</p>
       <p><strong>Parser INI propio:</strong> Se implementó un lector de archivos <code>.ini</code> desde cero sin
         librerías externas, parseando secciones y claves línea a línea con soporte de comentarios y tolerancia a
@@ -124,7 +124,7 @@
   </main>
 
   <footer>
-    <p><svg class="icon" aria-hidden="true"><use href="#i-copyright"/></svg> <span id="year"></span> · Rafael Martínez — Todos los derechos reservados.</p>
+    <p><svg class="icon" aria-hidden="true"><use href="#i-copyright"/></svg> <span id="year"></span> · Rafael Martínez - Todos los derechos reservados.</p>
   </footer>
   <script src="../js/common.js"></script>
 </body>

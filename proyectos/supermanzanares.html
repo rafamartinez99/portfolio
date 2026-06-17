@@ -123,16 +123,16 @@
     <section>
       <h2><svg class="icon" aria-hidden="true"><use href="#i-gears"/></svg> Decisiones técnicas</h2>
       <p><strong>Arquitectura MVVM + Hilt:</strong> Cada pantalla tiene su propio ViewModel inyectado con Hilt que
-        expone el estado mediante StateFlow. La UI solo observa y reacciona — nunca llama directamente al repositorio ni
+        expone el estado mediante StateFlow. La UI solo observa y reacciona - nunca llama directamente al repositorio ni
         a Firestore, lo que facilita el testing y evita fugas de contexto al rotar el dispositivo.</p>
       <p><strong>Room como fuente de verdad (offline-first):</strong> Los productos, listas y pedidos se almacenan
-        primero en Room y la UI siempre lee de ahí. Firestore actúa como capa de sincronización en segundo plano — si no
+        primero en Room y la UI siempre lee de ahí. Firestore actúa como capa de sincronización en segundo plano - si no
         hay conexión, la app sigue funcionando con los datos locales sin mostrar errores al usuario.</p>
-      <p><strong>Carrito como estado efímero en ViewModel:</strong> El carrito no se persiste en base de datos — vive en
+      <p><strong>Carrito como estado efímero en ViewModel:</strong> El carrito no se persiste en base de datos - vive en
         memoria en el ViewModel como un StateFlow de mapa producto→cantidad. Esto evita escrituras innecesarias en Room
         para datos que solo existen durante la sesión de compra y simplifica el vaciado al confirmar el pedido.</p>
-      <p><strong>Login dual con Firebase Auth:</strong> Se implementaron dos flujos de autenticación independientes —
-        Google Sign-In mediante ActivityResultContracts y email/contraseña manual — con validación de campos en el
+      <p><strong>Login dual con Firebase Auth:</strong> Se implementaron dos flujos de autenticación independientes -
+        Google Sign-In mediante ActivityResultContracts y email/contraseña manual - con validación de campos en el
         ViewModel antes de llamar a Auth, evitando peticiones innecesarias a Firebase con datos incorrectos.</p>
       <p><strong>Mapbox para selección de dirección:</strong> Se integró el SDK de Mapbox en lugar de Google Maps para
         el selector de domicilio, con un mapa interactivo que devuelve las coordenadas al ViewModel mediante callback.
@@ -148,7 +148,7 @@
   </main>
 
   <footer>
-    <p><svg class="icon" aria-hidden="true"><use href="#i-copyright"/></svg> <span id="year"></span> · Rafael Martínez — Todos los derechos reservados.</p>
+    <p><svg class="icon" aria-hidden="true"><use href="#i-copyright"/></svg> <span id="year"></span> · Rafael Martínez - Todos los derechos reservados.</p>
   </footer>
   <script src="../js/common.js"></script>
 </body>
