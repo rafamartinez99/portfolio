@@ -174,6 +174,48 @@ const statsObserver = new IntersectionObserver((entries) => {
 
 statNumbers.forEach(el => statsObserver.observe(el));
 
+// Detalle de tecnologías: muestra los proyectos de cada una
+const techItems = document.querySelectorAll(".tech-item");
+const techDetail = document.getElementById("tech-detail");
+
+if (techItems.length && techDetail) {
+  const isTouch = window.matchMedia("(hover: none)").matches;
+
+  const hint = techDetail.querySelector(".tech-detail-hint");
+  if (isTouch && hint) {
+    hint.textContent = "Selecciona una tecnología para ver en qué proyectos la he usado";
+  }
+  const defaultDetail = techDetail.innerHTML;
+
+  function showTechDetail(item) {
+    const tech = item.querySelector("p").textContent;
+    const projects = item.dataset.projects;
+    techDetail.innerHTML = `<strong>${tech}</strong> ${projects}`;
+  }
+
+  function resetTechDetail() {
+    techDetail.innerHTML = defaultDetail;
+  }
+
+  techItems.forEach(item => {
+    if (isTouch) {
+      item.addEventListener("click", () => {
+        const wasSelected = item.classList.contains("selected");
+        techItems.forEach(i => i.classList.remove("selected"));
+        if (wasSelected) {
+          resetTechDetail();
+        } else {
+          item.classList.add("selected");
+          showTechDetail(item);
+        }
+      });
+    } else {
+      item.addEventListener("mouseenter", () => showTechDetail(item));
+      item.addEventListener("mouseleave", resetTechDetail);
+    }
+  });
+}
+
 // Cursor spotlight (desktop only)
 if (window.matchMedia("(hover: hover)").matches) {
   const spotlight = document.getElementById("cursor-spotlight");
