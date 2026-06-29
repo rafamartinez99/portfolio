@@ -1129,6 +1129,44 @@ h3 {
   background: #000;
 }
 
+/* Galería de dashboard (vídeos + capturas, todo apilado al mismo ancho) */
+.dashboard-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  margin-top: 20px;
+}
+
+.dashboard-gallery figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.dashboard-gallery video,
+.dashboard-gallery img {
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  background: #000;
+}
+
+.dashboard-gallery video {
+  aspect-ratio: 960 / 506;
+}
+
+.dashboard-gallery figcaption {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
 .screenshots-grid {
   display: flex;
   flex-wrap: wrap;
