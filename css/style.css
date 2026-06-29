@@ -1167,6 +1167,23 @@ h3 {
   font-weight: 500;
 }
 
+/* Hover unificado para vídeos demo e imágenes de galería */
+.demo-video video,
+.demo-video-windows video,
+.dashboard-gallery video,
+.dashboard-gallery img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.demo-video video:hover,
+.demo-video-windows video:hover,
+.dashboard-gallery video:hover,
+.dashboard-gallery img:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 24px rgba(56, 189, 248, 0.15);
+}
+
 .screenshots-grid {
   display: flex;
   flex-wrap: wrap;
