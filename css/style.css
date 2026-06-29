@@ -1111,6 +1111,24 @@ h3 {
   font-weight: 500;
 }
 
+/* Vídeo demo apaisado (apps de escritorio) */
+.demo-video-windows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 24px 0 40px;
+}
+
+.demo-video-windows video {
+  width: 520px;
+  max-width: 100%;
+  aspect-ratio: 560 / 410;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  background: #000;
+}
+
 .screenshots-grid {
   display: flex;
   flex-wrap: wrap;
