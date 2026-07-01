@@ -477,7 +477,11 @@ header::after {
 /* ============================= */
 
 main {
-  padding: 24px 24px 80px;
+  padding: 56px 24px 56px;
+}
+
+main section:last-child {
+  margin-bottom: 0;
 }
 
 section {
@@ -1156,8 +1160,8 @@ h3 {
   background: #000;
 }
 
-.dashboard-gallery video {
-  aspect-ratio: 960 / 506;
+.dashboard-gallery video.portrait {
+  max-width: 340px;
 }
 
 .dashboard-gallery figcaption {
