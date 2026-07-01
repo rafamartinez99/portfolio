@@ -98,6 +98,7 @@ python -m http.server 8000
 | [Agente SFTP](https://rafamartinez99.github.io/portfolio/proyectos/agentesftp.html) | Agente de bandeja que sube archivos por SFTP (Acerinox). | C# · .NET 8 · SSH.NET |
 | [EncryptorACX](https://rafamartinez99.github.io/portfolio/proyectos/encryptoracx.html) | Herramienta de cifrado de credenciales (Acerinox). | C# · .NET · WPF · AES |
 | [StarWars Compose](https://rafamartinez99.github.io/portfolio/proyectos/starwars.html) | App Android que consume la API pública SWAPI. | Kotlin · Jetpack Compose · Retrofit |
+| [Hnefatafl](https://rafamartinez99.github.io/portfolio/proyectos/hnefatafl.html) | Juego de tablero vikingo con IA por búsqueda a 2 niveles. | Java · JUnit 5 |
 
 ---
 
